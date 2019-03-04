@@ -19,8 +19,10 @@ const unsplash = new Unsplash({
  * @desc api to fetch all image details
  */
 Router.get('/', (req, res) => {
+  const start = req.query.start;
+  const count = req.query.count;
   unsplash.photos
-    .listPhotos(1, 30)
+    .listPhotos(start, count)
     .then(toJson)
     .then(json => res.json(json));
 });
