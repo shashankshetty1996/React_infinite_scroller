@@ -10,8 +10,8 @@ class App extends Component {
           <div className="hero-body">
             <div className="container">
               <div className="header content">
-                <h2 className="subtitle is-6">Infinite Scroll</h2>
                 <h1 className="title is-1">Unsplash Image Gallery</h1>
+                <h2 className="subtitle is-6">Infinite Scroll view</h2>
               </div>
               {/* Image render component */}
               <Images />
