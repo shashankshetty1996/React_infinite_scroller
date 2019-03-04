@@ -11,20 +11,17 @@ export class Images extends Component {
   };
 
   componentDidMount() {
-    const { count, start } = this.state;
-    axios
-      .get(`/api/photos?count=${count}&start=${start}`)
-      .then(res => this.setState({ images: res.data }));
+    this.fetchImages();
   }
 
   fetchImages = () => {
     const { count, start } = this.state;
     this.setState({ start: this.state.start + count });
-    axios
-      .get(`/api/photos?count=${count}&start=${start}`)
-      .then(res =>
-        this.setState({ images: this.state.images.concat(res.data) })
-      );
+    axios.get(`/api/photos?count=${count}&start=${start}`).then(res =>
+      this.setState(prevState => ({
+        images: prevState.images.concat(res.data)
+      }))
+    );
   };
 
   render() {
