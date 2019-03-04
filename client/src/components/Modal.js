@@ -7,7 +7,7 @@ const Modal = props => {
     modal = modal
       .split(' ')
       .push('overlay')
-      .join(',');
+      .toString();
   }
   if (show) {
     return (
@@ -18,7 +18,7 @@ const Modal = props => {
             &times;
           </span>
         </div>
-        {props.children}
+        <div className="modal-body">{props.children}</div>
       </div>
     );
   }
