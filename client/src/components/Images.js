@@ -35,7 +35,7 @@ export class Images extends Component {
           dataLength={images.length}
           next={this.fetchImages}
           hasMore={true}
-          useWindow
+          scrollThreshold={0.65}
         >
           {images.map(image => (
             <Image key={image.id} image={image} />
