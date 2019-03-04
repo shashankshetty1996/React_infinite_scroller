@@ -25,15 +25,19 @@ export class Images extends Component {
   };
 
   render() {
+    const { images } = this.state;
+    if (images.length === 0) {
+      return <h1>Loading...</h1>;
+    }
     return (
       <div className="images">
         <InfiniteScroll
-          dataLength={this.state.images.length}
+          dataLength={images.length}
           next={this.fetchImages}
           hasMore={true}
-          loader={<h4>Loading...</h4>}
+          useWindow
         >
-          {this.state.images.map(image => (
+          {images.map(image => (
             <Image key={image.id} image={image} />
           ))}
         </InfiniteScroll>
